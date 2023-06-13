@@ -1,0 +1,28 @@
+#include <stdio.h>
+int main() 
+{
+    float x;
+    int terms;
+    float result = 1.0;
+    int sign = -1;
+    int i, j;
+    float term;
+    printf("Enter the value of x: ");
+    scanf("%f", &x);
+    printf("Enter the number of terms: ");
+    scanf("%d", &terms);
+    for (i = 1, j = 1; i <= terms; i++, j++) 
+	{
+        term = sign * x;
+        int factorial = 1;
+        for (int k = 1; k <= j; k++) 
+		{
+            factorial *= k;
+        }
+        term /= factorial;
+        result += term;
+        sign *= -1;
+    }
+    printf("e^(-1) = %f\n", result);
+    return 0;
+}
