@@ -1,0 +1,46 @@
+#include <stdio.h>
+int main() 
+{
+    int units;
+    char grade;
+    int totalCredits = 0;
+    double totalGradePoints = 0.0;
+    double gradePointAverage;
+    printf("Enter the grade and units for each course (enter 'X' to stop):\n");
+    while (1) 
+	{
+        printf("Grade: ");
+        scanf(" %c", &grade);
+        if (grade == 'X')
+		 {
+            break;
+        }
+        printf("Units: ");
+        scanf("%d", &units);
+        switch (grade) 
+		{
+            case 'A':
+                totalGradePoints += 4.0 * units;
+                break;
+            case 'B':
+                totalGradePoints += 3.0 * units;
+                break;
+            case 'C':
+                totalGradePoints += 2.0 * units;
+                break;
+            case 'D':
+                totalGradePoints += 1.0 * units;
+                break;
+            case 'F':
+                totalGradePoints += 0.0 * units;
+                break;
+            default:
+                printf("Invalid grade. Please try again.\n");
+                continue;
+        }
+        totalCredits += units;
+    }
+    gradePointAverage = totalGradePoints / totalCredits;
+    printf("Grade Point Average: %.2f\n", gradePointAverage);
+    return 0;
+}
